@@ -1,0 +1,22 @@
+body {
+  background-color: ghostwhite;
+
+}
+
+a {
+  word-wrap: break-word;
+}
+
+.card {
+  height: 100%;
+}
+
+.navbar {
+  background-color: white;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.navbar-brand {
+  margin-left: 20px;
+}
