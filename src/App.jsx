@@ -4,54 +4,55 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Story from './components/Story';
 
-import { getItem, getTopStories } from './services/fetch';
-
 export default class extends Component {
   state = {
-    ids: [],
-    stories: [],
     page: 'Home'
   }
 
-  async componentWillMount() {
-    const ids = await getTopStories()
-    const stories = await Promise.all(
-      ids.slice(0, 30).map(getItem)
-    )
+  constructor(props) {
+    super(props)
 
-    this.setState({ids, stories});
+    this.onNavigate = this.onNavigate.bind(this);
   }
 
-  showStory(storyId) {
-    this.setState({
-      page: 'Story',
-      currentId: storyId
-    })
+  onNavigate(page, data) {
+    var state = Object.assign({
+      page: page
+    }, data)
+
+    this.setState(state)
   }
 
   renderHome() {
     return (
-      <Home showStory={this.showStory.bind(this)} elements={this.state.stories} />
+      <Home onNavigate={this.onNavigate} />
     )
   }
   // todo : use redux
   // todo : use routing
   // TODO : Virer le mode DEV
-  // TODO : Finish it :)
   renderStory() {
-    console.log(this.state.currentId);
-
     return (
-      <Story />
+      <Story storyId={this.state.storyId} />
     )
   }
 
-  // TODO : Make render'Page' better (use a callback function in state)
+  renderPage() {
+    var currentPage = this.state.page
+
+    if (currentPage === 'Story')
+    {
+      return this.renderStory();
+    }
+
+    return this.renderHome();
+  }
+
   render() {
     return (
       <div>
         <Header title="Hacker News" />
-        {this[`render${this.state.page}`]()}
+        {this.renderPage()}
       </div>
     );
   }

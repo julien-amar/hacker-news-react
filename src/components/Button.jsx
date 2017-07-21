@@ -1,9 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ block, size, text }) => (
+const Button = ({ block, size, text, onClick }) => (
   <button
     className={`btn ${block ? 'btn-block' : ''} btn-${size} btn-primary`}
+    onClick={event => {
+        if (onClick) {
+          event.preventDefault();
+          event.stopPropagation();
+          onClick();
+        }
+      }}
     type="button"
   >
     {text}

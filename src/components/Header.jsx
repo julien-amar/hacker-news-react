@@ -4,7 +4,7 @@ import Link from './Link';
 
 export default ({ onTitleClick, title = '' }) => (
   <header className="navbar bg-gray">
-    <section className="navbar-section">
+    <section className="navbar-section navbar-brand">
       <Link to="/">
         {title}
       </Link>

@@ -1,16 +1,16 @@
 body {
   background-color: ghostwhite;
-
 }
 
 a {
   word-wrap: break-word;
+
+  cursor: pointer;
 }
 
-.card {
-  height: 100%;
-}
-
+/*
+** LAYOUT
+*/
 .navbar {
   background-color: white;
   height: 50px;
@@ -19,4 +19,40 @@ a {
 
 .navbar-brand {
   margin-left: 20px;
+}
+
+/*
+** COMPONENTS
+*/
+.card {
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-body {
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-footer {
+    margin-top: auto;
+}
+
+/*
+** STORY PAGE
+*/
+
+.loader {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.comment-list {
+  margin-right: 20px;
+}
+.comment-entry {
+  margin: 20px 0px 20px 20px
 }

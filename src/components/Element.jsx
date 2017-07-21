@@ -1,8 +1,13 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
+
+import FaUser from 'react-icons/lib/fa/user'
+import FaDialog from 'react-icons/lib/fa/comment-o'
 
 import Card from './Card';
 import Link from './Link';
+
 import { getHost } from '../services/url';
 
 const Element = ({ id, title, url, descendants, by, score, showStory }) => (
@@ -10,11 +15,18 @@ const Element = ({ id, title, url, descendants, by, score, showStory }) => (
     title={title}
     onTitleClick={showStory.bind(null, id)}
     subtitle={
-      url && <Link to={url} newTab>{getHost(url)}</Link>
-    }>
-
-    {score} -  by {by} {descendants} comments 
-  </Card>
+      url && (
+        <div>
+          <Link to={url} newTab>{getHost(url)}</Link> - ({score} pts)
+        </div>
+      )
+    }
+    footer={(
+      <div>
+        <FaDialog /> {descendants} <FaUser /> {by}
+      </div>
+    )}
+    />
 );
 
 // TODO : Default validation needed
