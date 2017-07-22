@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import Cell from './Cell';
 import Columns from './Columns';
 import Element from './Element';
 import Button from './Button';
-import Loader from './Loader';
 
 import { getItem, getTopStories } from '../services/fetch';
 
@@ -72,9 +70,5 @@ const Home = class extends Component {
     );
   }
 }
-
-// TODO : typer les props
-Home.propTypes = {
-};
 
 export default Home;

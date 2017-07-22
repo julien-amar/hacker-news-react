@@ -26,11 +26,11 @@ const Link = ({ children, className, newTab, onClick, to }) => {
 };
 
 Link.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.any.isRequired,
   className: PropTypes.string,
   newTab: PropTypes.bool,
   onClick: PropTypes.func,
-  to: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired
 };
 
 export default Link;

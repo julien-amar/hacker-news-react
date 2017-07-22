@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import FaUser from 'react-icons/lib/fa/user'
@@ -7,17 +7,15 @@ import FaClock from 'react-icons/lib/fa/clock-o'
 import Loader from './Loader';
 import Link from './Link';
 import Card from './Card';
-import Divider from './Divider';
 
 import { getItem } from '../services/fetch';
 import { timeDifference } from '../services/date';
 
-export default class extends React.Component {
+const Story = class extends Component {
   state = {
     story: {
       comments: []
     },
-    comments: [],
     isLoading: true,
     loadingProgress: 0
   }
@@ -118,3 +116,10 @@ export default class extends React.Component {
     );
   }
 }
+
+Story.propTypes = {
+  storyId: PropTypes.number.isRequired
+};
+
+
+export default Story;

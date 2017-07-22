@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default ({ isLoading, loadingProgress }) => (
+const Loader = ({ isLoading, loadingProgress }) => {
+  return (
   <div className="loader">
     {isLoading &&
     <div className="bar bar-sm">
@@ -8,4 +10,12 @@ export default ({ isLoading, loadingProgress }) => (
     </div>
     }
   </div>
-);
+  );
+};
+
+Loader.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  loadingProgress: PropTypes.number.isRequired
+};
+
+export default Loader;

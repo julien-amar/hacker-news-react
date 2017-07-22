@@ -1,5 +1,4 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 
 import FaUser from 'react-icons/lib/fa/user'
@@ -29,11 +28,14 @@ const Element = ({ id, title, url, descendants, by, score, showStory }) => (
     />
 );
 
-// TODO : Default validation needed
 Element.propTypes = {
-};
-
-Element.defaultProps = {
+  id: PropTypes.number.isRequired, 
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired, 
+  descendants: PropTypes.number.isRequired, 
+  by: PropTypes.string.isRequired, 
+  score: PropTypes.number.isRequired,
+  showStory: PropTypes.func.isRequired
 };
 
 export default Element;
